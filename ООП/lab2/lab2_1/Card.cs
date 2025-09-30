@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace lab2_1
 {
-    class Card
+    public class Card
     {
         public string Number { get; }
         public string Pin { get; }

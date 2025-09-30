@@ -10,7 +10,7 @@ namespace lab2_1
     {
         static void Main(string[] args)
         {
-            ATM atm = new ATM();
+            ATM atm = new();
             atm.Run();
         }
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace lab2_1
 {
-    sealed class CreditAccount : Account
+    public sealed class CreditAccount : Account
     {
         protected override string AccountType => "Кредитный счёт";
 

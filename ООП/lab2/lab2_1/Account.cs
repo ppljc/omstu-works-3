@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace lab2_1
 {
-    abstract class Account
+    public abstract class Account
     {
         public int Id { get; }
         public decimal Balance { get; protected set; }

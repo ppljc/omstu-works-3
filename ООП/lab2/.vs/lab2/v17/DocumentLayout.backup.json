@@ -3,32 +3,32 @@
   "WorkspaceRootPath": "D:\\Documents\\omstu-works-2\\\u041E\u041E\u041F\\lab2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BBD6D16D-BBF7-43FC-A1CB-905F72D37CA4}|lab2_1\\lab2_1.csproj|d:\\documents\\omstu-works-2\\\u043E\u043E\u043F\\lab2\\lab2_1\\atm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BBD6D16D-BBF7-43FC-A1CB-905F72D37CA4}|lab2_1\\lab2_1.csproj|solutionrelative:lab2_1\\atm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9D90059A-4ABB-580D-B6C7-E49689E07BC1}|lab2_1\\lab2_1.csproj|d:\\documents\\omstu-works-2\\\u043E\u043E\u043F\\lab2\\lab2_1\\atm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D90059A-4ABB-580D-B6C7-E49689E07BC1}|lab2_1\\lab2_1.csproj|solutionrelative:lab2_1\\atm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BBD6D16D-BBF7-43FC-A1CB-905F72D37CA4}|lab2_1\\lab2_1.csproj|d:\\documents\\omstu-works-2\\\u043E\u043E\u043F\\lab2\\lab2_1\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BBD6D16D-BBF7-43FC-A1CB-905F72D37CA4}|lab2_1\\lab2_1.csproj|solutionrelative:lab2_1\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9D90059A-4ABB-580D-B6C7-E49689E07BC1}|lab2_1\\lab2_1.csproj|d:\\documents\\omstu-works-2\\\u043E\u043E\u043F\\lab2\\lab2_1\\debitaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D90059A-4ABB-580D-B6C7-E49689E07BC1}|lab2_1\\lab2_1.csproj|solutionrelative:lab2_1\\debitaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BBD6D16D-BBF7-43FC-A1CB-905F72D37CA4}|lab2_1\\lab2_1.csproj|d:\\documents\\omstu-works-2\\\u043E\u043E\u043F\\lab2\\lab2_1\\bank.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BBD6D16D-BBF7-43FC-A1CB-905F72D37CA4}|lab2_1\\lab2_1.csproj|solutionrelative:lab2_1\\bank.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9D90059A-4ABB-580D-B6C7-E49689E07BC1}|lab2_1\\lab2_1.csproj|d:\\documents\\omstu-works-2\\\u043E\u043E\u043F\\lab2\\lab2_1\\creditaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D90059A-4ABB-580D-B6C7-E49689E07BC1}|lab2_1\\lab2_1.csproj|solutionrelative:lab2_1\\creditaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BBD6D16D-BBF7-43FC-A1CB-905F72D37CA4}|lab2_1\\lab2_1.csproj|d:\\documents\\omstu-works-2\\\u043E\u043E\u043F\\lab2\\lab2_1\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BBD6D16D-BBF7-43FC-A1CB-905F72D37CA4}|lab2_1\\lab2_1.csproj|solutionrelative:lab2_1\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B15BEA6B-DC92-4F15-9D0C-D1607BEF76F2}|lab2_2\\lab2_2.csproj|d:\\documents\\omstu-works-2\\\u043E\u043E\u043F\\lab2\\lab2_2\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B15BEA6B-DC92-4F15-9D0C-D1607BEF76F2}|lab2_2\\lab2_2.csproj|solutionrelative:lab2_2\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BBD6D16D-BBF7-43FC-A1CB-905F72D37CA4}|lab2_1\\lab2_1.csproj|d:\\documents\\omstu-works-2\\\u043E\u043E\u043F\\lab2\\lab2_1\\creditaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BBD6D16D-BBF7-43FC-A1CB-905F72D37CA4}|lab2_1\\lab2_1.csproj|solutionrelative:lab2_1\\creditaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9D90059A-4ABB-580D-B6C7-E49689E07BC1}|lab2_1\\lab2_1.csproj|d:\\documents\\omstu-works-2\\\u043E\u043E\u043F\\lab2\\lab2_1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D90059A-4ABB-580D-B6C7-E49689E07BC1}|lab2_1\\lab2_1.csproj|solutionrelative:lab2_1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BBD6D16D-BBF7-43FC-A1CB-905F72D37CA4}|lab2_1\\lab2_1.csproj|d:\\documents\\omstu-works-2\\\u043E\u043E\u043F\\lab2\\lab2_1\\debitaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BBD6D16D-BBF7-43FC-A1CB-905F72D37CA4}|lab2_1\\lab2_1.csproj|solutionrelative:lab2_1\\debitaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9D90059A-4ABB-580D-B6C7-E49689E07BC1}|lab2_1\\lab2_1.csproj|d:\\documents\\omstu-works-2\\\u043E\u043E\u043F\\lab2\\lab2_1\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D90059A-4ABB-580D-B6C7-E49689E07BC1}|lab2_1\\lab2_1.csproj|solutionrelative:lab2_1\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BBD6D16D-BBF7-43FC-A1CB-905F72D37CA4}|lab2_1\\lab2_1.csproj|d:\\documents\\omstu-works-2\\\u043E\u043E\u043F\\lab2\\lab2_1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BBD6D16D-BBF7-43FC-A1CB-905F72D37CA4}|lab2_1\\lab2_1.csproj|solutionrelative:lab2_1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9D90059A-4ABB-580D-B6C7-E49689E07BC1}|lab2_1\\lab2_1.csproj|d:\\documents\\omstu-works-2\\\u043E\u043E\u043F\\lab2\\lab2_1\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D90059A-4ABB-580D-B6C7-E49689E07BC1}|lab2_1\\lab2_1.csproj|solutionrelative:lab2_1\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,8 +38,56 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Documents\\omstu-works-2\\\u041E\u041E\u041F\\lab2\\lab2_1\\Program.cs",
+              "RelativeDocumentMoniker": "lab2_1\\Program.cs",
+              "ToolTip": "D:\\Documents\\omstu-works-2\\\u041E\u041E\u041F\\lab2\\lab2_1\\Program.cs",
+              "RelativeToolTip": "lab2_1\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-18T15:52:58.819Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DebitAccount.cs",
+              "DocumentMoniker": "D:\\Documents\\omstu-works-2\\\u041E\u041E\u041F\\lab2\\lab2_1\\DebitAccount.cs",
+              "RelativeDocumentMoniker": "lab2_1\\DebitAccount.cs",
+              "ToolTip": "D:\\Documents\\omstu-works-2\\\u041E\u041E\u041F\\lab2\\lab2_1\\DebitAccount.cs",
+              "RelativeToolTip": "lab2_1\\DebitAccount.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-18T15:52:58.278Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CreditAccount.cs",
+              "DocumentMoniker": "D:\\Documents\\omstu-works-2\\\u041E\u041E\u041F\\lab2\\lab2_1\\CreditAccount.cs",
+              "RelativeDocumentMoniker": "lab2_1\\CreditAccount.cs",
+              "ToolTip": "D:\\Documents\\omstu-works-2\\\u041E\u041E\u041F\\lab2\\lab2_1\\CreditAccount.cs",
+              "RelativeToolTip": "lab2_1\\CreditAccount.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-18T15:52:57.7Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Card.cs",
+              "DocumentMoniker": "D:\\Documents\\omstu-works-2\\\u041E\u041E\u041F\\lab2\\lab2_1\\Card.cs",
+              "RelativeDocumentMoniker": "lab2_1\\Card.cs",
+              "ToolTip": "D:\\Documents\\omstu-works-2\\\u041E\u041E\u041F\\lab2\\lab2_1\\Card.cs",
+              "RelativeToolTip": "lab2_1\\Card.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-18T15:52:57.14Z"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -48,88 +96,34 @@
               "RelativeDocumentMoniker": "lab2_1\\ATM.cs",
               "ToolTip": "D:\\Documents\\omstu-works-2\\\u041E\u041E\u041F\\lab2\\lab2_1\\ATM.cs",
               "RelativeToolTip": "lab2_1\\ATM.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAgwBgAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-16T17:21:51.321Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Card.cs",
-              "DocumentMoniker": "D:\\Documents\\omstu-works-2\\\u041E\u041E\u041F\\lab2\\lab2_1\\Card.cs",
-              "RelativeDocumentMoniker": "lab2_1\\Card.cs",
-              "ToolTip": "D:\\Documents\\omstu-works-2\\\u041E\u041E\u041F\\lab2\\lab2_1\\Card.cs",
-              "RelativeToolTip": "lab2_1\\Card.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAIwBsAAAA/AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-16T17:12:42.737Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Bank.cs",
-              "DocumentMoniker": "D:\\Documents\\omstu-works-2\\\u041E\u041E\u041F\\lab2\\lab2_1\\Bank.cs",
-              "RelativeDocumentMoniker": "lab2_1\\Bank.cs",
-              "ToolTip": "D:\\Documents\\omstu-works-2\\\u041E\u041E\u041F\\lab2\\lab2_1\\Bank.cs",
-              "RelativeToolTip": "lab2_1\\Bank.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAgwCAAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-16T16:13:15.676Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Account.cs",
-              "DocumentMoniker": "D:\\Documents\\omstu-works-2\\\u041E\u041E\u041F\\lab2\\lab2_1\\Account.cs",
-              "RelativeDocumentMoniker": "lab2_1\\Account.cs",
-              "ToolTip": "D:\\Documents\\omstu-works-2\\\u041E\u041E\u041F\\lab2\\lab2_1\\Account.cs",
-              "RelativeToolTip": "lab2_1\\Account.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAIwCUAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-16T16:13:14.58Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CreditAccount.cs",
-              "DocumentMoniker": "D:\\Documents\\omstu-works-2\\\u041E\u041E\u041F\\lab2\\lab2_1\\CreditAccount.cs",
-              "RelativeDocumentMoniker": "lab2_1\\CreditAccount.cs",
-              "ToolTip": "D:\\Documents\\omstu-works-2\\\u041E\u041E\u041F\\lab2\\lab2_1\\CreditAccount.cs",
-              "RelativeToolTip": "lab2_1\\CreditAccount.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-16T16:13:13.747Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "DebitAccount.cs",
-              "DocumentMoniker": "D:\\Documents\\omstu-works-2\\\u041E\u041E\u041F\\lab2\\lab2_1\\DebitAccount.cs",
-              "RelativeDocumentMoniker": "lab2_1\\DebitAccount.cs",
-              "ToolTip": "D:\\Documents\\omstu-works-2\\\u041E\u041E\u041F\\lab2\\lab2_1\\DebitAccount.cs",
-              "RelativeToolTip": "lab2_1\\DebitAccount.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-16T16:13:12.405Z",
+              "WhenOpened": "2025-09-18T15:52:56.626Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Documents\\omstu-works-2\\\u041E\u041E\u041F\\lab2\\lab2_1\\Program.cs",
-              "RelativeDocumentMoniker": "lab2_1\\Program.cs",
-              "ToolTip": "D:\\Documents\\omstu-works-2\\\u041E\u041E\u041F\\lab2\\lab2_1\\Program.cs",
-              "RelativeToolTip": "lab2_1\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Title": "Account.cs",
+              "DocumentMoniker": "D:\\Documents\\omstu-works-2\\\u041E\u041E\u041F\\lab2\\lab2_1\\Account.cs",
+              "RelativeDocumentMoniker": "lab2_1\\Account.cs",
+              "ToolTip": "D:\\Documents\\omstu-works-2\\\u041E\u041E\u041F\\lab2\\lab2_1\\Account.cs",
+              "RelativeToolTip": "lab2_1\\Account.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-16T16:13:10.224Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-18T15:52:56.1Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UnitTest1.cs",
+              "DocumentMoniker": "D:\\Documents\\omstu-works-2\\\u041E\u041E\u041F\\lab2\\lab2_2\\UnitTest1.cs",
+              "RelativeDocumentMoniker": "lab2_2\\UnitTest1.cs",
+              "ToolTip": "D:\\Documents\\omstu-works-2\\\u041E\u041E\u041F\\lab2\\lab2_2\\UnitTest1.cs",
+              "RelativeToolTip": "lab2_2\\UnitTest1.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABAAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-18T15:50:11.977Z"
             }
           ]
         }
