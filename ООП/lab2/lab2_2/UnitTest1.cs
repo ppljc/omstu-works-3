@@ -1,8 +1,10 @@
 using NUnit.Framework;
-using lab2_1; // твой основной проект
+using lab2_1;
 using System;
 using System.IO;
 using System.Linq;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Net.NetworkInformation;
 
 namespace lab2_2
 {
@@ -10,113 +12,179 @@ namespace lab2_2
     public class UnitTest1
     {
         private ATM atm;
-        private Card cardWithDebitAndCredit;
-        private Card cardWithOnlyCredit;
 
         [SetUp]
         public void Setup()
         {
             atm = new ATM();
-
-            bool loggedIn = atm.Login("1234123412341234", "1234");
-            Assert.IsTrue(loggedIn);
-
-            testCard = atm.CurrentCard;
         }
 
-        [Test]
-        public void Test_CreateDebitAccount_AddsAccount()
+        [TestCase("4321432143214321", "4321")] // debit
+        [TestCase("1111222233334444", "1111")] // credit
+        [TestCase("1234123412341234", "1234")] // debit + credit
+        public void Test_Login(string number, string pin)
         {
+            bool result = atm.Login(number, pin);
+
+            Assert.That(result, Is.True);
+
+            Card testCard = atm.CurrentCard;
+
+            Assert.That(testCard, Is.Not.Null);
+            Assert.That(testCard.Number, Is.EqualTo(number));
+        }
+
+        [TestCase("4321432112341234", "4321")] // incorrect number
+        [TestCase("4321432143214321", "1234")] // incorrect pin
+        public void Test_Login_Errors(string number, string pin)
+        {
+            bool result = atm.Login(number, pin);
+
+            Assert.That(result, Is.False);
+
+            Card testCard = atm.CurrentCard;
+
+            Assert.That(testCard, Is.Null);
+        }
+
+        [TestCase("debit", typeof(DebitAccount))]
+        [TestCase("credit", typeof(CreditAccount))]
+        public void Test_CreateAccount(string type, Type expectedType)
+        {
+            atm.Login("1234123412341234", "1234");
+            Card testCard = atm.CurrentCard;
             int beforeCount = testCard.Accounts.Count;
 
-            atm.CreateAccount("debit");
+            testCard.CreateAccount(type);
 
-            Assert.AreEqual(beforeCount + 1, testCard.Accounts.Count);
-            Assert.IsInstanceOf<DebitAccount>(testCard.Accounts.Last());
+            Assert.That(testCard.Accounts, Has.Count.EqualTo(beforeCount + 1));
+            Assert.That(testCard.Accounts.Last(), Is.InstanceOf(expectedType));
+        }
+
+        [TestCase(1, typeof(CreditAccount))]
+        [TestCase(2, typeof(CurrentAccount))]
+        public void Test_SetActiveAccount(int newId, Type expectedType)
+        {
+            atm.Login("1234123412341234", "1234");
+            Card testCard = atm.CurrentCard;
+
+            testCard.SetActiveAccount(newId);
+
+            Assert.That(atm.CurrentCard.ActiveAccount, Is.InstanceOf(expectedType));
         }
 
         [Test]
-        public void Test_CreateCreditAccount_AddsAccount()
+        public void Test_SelectActiveAccount_OnlyOne()
         {
-            int beforeCount = testCard.Accounts.Count;
+            atm.Login("1111222233334444", "1111");
+            Card testCard = atm.CurrentCard;
 
-            atm.CreateAccount("credit");
-
-            Assert.AreEqual(beforeCount + 1, testCard.Accounts.Count);
-            Assert.IsInstanceOf<CreditAccount>(testCard.Accounts.Last());
+            Assert.Throws<ArgumentOutOfRangeException>(() => testCard.SetActiveAccount(1));
         }
 
         [Test]
-        public void Test_SelectActiveAccount_ChangesActiveAccount()
+        public void Test_CheckCredit()
         {
-            atm.SelectActiveAccount(1);
-            Assert.AreEqual(testCard.Accounts[0], testCard.ActiveAccount);
+            atm.Login("1234123412341234", "1234");
+            Card testCard = atm.CurrentCard;
+
+            testCard.SetActiveAccount(1);
+            testCard.ActiveAccount.Withdraw(15001);
+
+            testCard.SetActiveAccount(1);
+            Assert.Throws<InvalidOperationException>(() => testCard.ActiveAccount.Withdraw(15001));
+        }
+
+        [TestCase("4321432143214321", "4321")] // debit
+        [TestCase("1111222233334444", "1111")] // credit
+        [TestCase("1234123412341234", "1234")] // debit + credit + current (not active)
+        [TestCase("1234123411112222", "1122")] // current (no debit)
+        [TestCase("1234123433334444", "3344")] // credit + current (not active + no debit)
+        public void Test_Deposit_NoBonus(string number, string pin)
+        {
+            atm.Login(number, pin);
+            Card testCard = atm.CurrentCard;
+
+            decimal beforeBalance = testCard.TotalBalance;
+
+            atm.Deposit(1_000_000m);
+
+            Assert.That(testCard.TotalBalance, Is.EqualTo(beforeBalance + 1_000_000));
         }
 
         [Test]
-        public void Test_Deposit_AddsMoneyAndBonus()
+        public void Test_Deposit_Bonus()
         {
-            decimal beforeBalance = testCard.ActiveAccount.Balance;
+            atm.Login("1234123412341234", "1234");
+            Card testCard = atm.CurrentCard;
 
-            atm.Deposit(1_000_001m);
+            decimal beforeBalance = testCard.TotalBalance;
 
-            var debit = testCard.Accounts.First(a => a is DebitAccount);
-            Assert.AreEqual(beforeBalance + 1_000_001 + 2000, debit.Balance);
+            testCard.SetActiveAccount(2);
+
+            atm.Deposit(1_000_000m);
+
+            Assert.That(testCard.TotalBalance, Is.EqualTo(beforeBalance + 1_000_000 + 2000));
         }
 
         [Test]
-        public void Test_Deposit_SmallAmount_NoBonus()
+        public void Test_Withdraw()
         {
-            decimal beforeBalance = testCard.ActiveAccount.Balance;
+            atm.Login("4321432143214321", "4321");
+            Card testCard = atm.CurrentCard;
 
-            atm.Deposit(500m);
-
-            Assert.AreEqual(beforeBalance + 500, testCard.ActiveAccount.Balance);
-        }
-
-        [Test]
-        public void Test_Withdraw_DecreasesBalance()
-        {
-            decimal beforeBalance = testCard.ActiveAccount.Balance;
+            decimal beforeBalance = testCard.TotalBalance;
 
             atm.Withdraw(500m);
 
-            Assert.AreEqual(beforeBalance - 500, testCard.ActiveAccount.Balance);
+            Assert.That(testCard.TotalBalance, Is.EqualTo(beforeBalance - 500));
         }
 
-        [Test]
-        public void Test_Withdraw_OverSessionLimit_Throws()
+        [TestCase(30001, typeof(InvalidOperationException))] // превышение лимита
+        [TestCase(-5000, typeof(ArgumentException))]         // отрицательная сумма
+        [TestCase(15001, typeof(InvalidOperationException))] // уход в минус
+        public void Test_Withdraw_Errors(decimal amount, Type expectedException)
         {
-            atm.Withdraw(30000m);
+            atm.Login("4321432143214321", "4321");
+            Card testCard = atm.CurrentCard;
 
-            Assert.Throws<System.InvalidOperationException>(() => atm.Withdraw(1m));
+            Assert.Throws(expectedException, () => atm.Withdraw(amount));
         }
 
+
         [Test]
-        public void Test_Transfer_MovesMoneyBetweenAccounts()
+        public void Test_Transfer()
         {
+            atm.Login("1234123412341234", "1234");
+            Card testCard = atm.CurrentCard;
+
             decimal fromBefore = testCard.Accounts[0].Balance;
             decimal toBefore = testCard.Accounts[1].Balance;
 
-            atm.Transfer(1, 200m);
+            atm.Transfer(1, 5000m);
 
-            Assert.AreEqual(fromBefore - 200, testCard.Accounts[0].Balance);
-            Assert.AreEqual(toBefore + 200, testCard.Accounts[1].Balance);
+            Assert.That(testCard.Accounts[0].Balance, Is.EqualTo(fromBefore - 5000));
+            Assert.That(testCard.Accounts[1].Balance, Is.EqualTo(toBefore + 5000));
         }
 
         [Test]
-        public void Test_TotalBalance_Calculation()
+        public void Test_Transfer_NotExsistingAccount()
         {
+            atm.Login("1234123412341234", "1234");
+            Card testCard = atm.CurrentCard;
+
+            Assert.Throws<ArgumentOutOfRangeException>(() => atm.Transfer(-1, 5000m));
+        }
+
+        [Test]
+        public void Test_TotalBalance()
+        {
+            atm.Login("1234123412341234", "1234");
+            Card testCard = atm.CurrentCard;
+
             decimal total = testCard.Accounts.Sum(a => a.Balance);
-            Assert.AreEqual(10000 + (-5000), total);
-        }
 
-        [Test]
-        public void Test_Login_InvalidPin_Fails()
-        {
-            var atm2 = new ATM();
-            bool loggedIn = atm2.Login("1234123412341234", "0000");
-            Assert.IsFalse(loggedIn);
+            Assert.That(total, Is.EqualTo(10000 + (-5000)));
         }
     }
 }

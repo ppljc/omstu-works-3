@@ -22,6 +22,34 @@ namespace lab2_1
         public Account ActiveAccount => Accounts[0];
         public decimal TotalBalance => Accounts.Sum(a => a.Balance);
 
+        public void CreateAccount(string type)
+        {
+            int newId = Accounts.Count;
+            if (type.ToLower() == "debit")
+                Accounts.Add(new DebitAccount(newId));
+            else if (type.ToLower() == "credit")
+                Accounts.Add(new CreditAccount(newId));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public void SetActiveAccount(int id)
+        {
+            if (id >= 0 && id < Accounts.Count)
+            {
+                var selected = Accounts[id];
+                Accounts.RemoveAt(id);
+                Accounts.Insert(0, selected);
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException("Счёт по ID не найден.");
+            }
+        }
+
         public void PrintCardInfo()
         {
             Console.WriteLine($"Ваша карта: {Number}");

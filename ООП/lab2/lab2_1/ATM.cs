@@ -18,7 +18,8 @@ namespace lab2_1
                     "1234",
                     new List<Account> {
                         new DebitAccount(0, 10000),
-                        new CreditAccount(1, -5000)
+                        new CreditAccount(1, -5000),
+                        new CurrentAccount(2, 0)
                     }
                 )
             );
@@ -31,9 +32,36 @@ namespace lab2_1
                     }
                 )
             );
+            cards.Add(
+                new Card(
+                    "4321432143214321",
+                    "4321",
+                    new List<Account> {
+                        new DebitAccount(0, 15000)
+                    }
+                )
+            );
+            cards.Add(
+                new Card(
+                    "1234123411112222",
+                    "1122",
+                    new List<Account> {
+                        new CurrentAccount(0, 0)
+                    }
+                )
+            );
+            cards.Add(
+                new Card(
+                    "1234123433334444",
+                    "3344",
+                    new List<Account> {
+                        new CreditAccount(0, -5000),
+                        new CurrentAccount(1, 0)
+                    }
+                )
+            );
         }
-
-        #region Функциональные методы (для тестов)
+        
         public bool Login(string cardNumber, string pin)
         {
             var card = cards.FirstOrDefault(c => c.Number == cardNumber);
@@ -46,33 +74,13 @@ namespace lab2_1
             return false;
         }
 
-        public void CreateAccount(string type)
-        {
-            int newId = CurrentCard.Accounts.Count;
-            if (type.ToLower() == "debit")
-                CurrentCard.Accounts.Add(new DebitAccount(newId));
-            else if (type.ToLower() == "credit")
-                CurrentCard.Accounts.Add(new CreditAccount(newId));
-        }
-
-        public void SelectActiveAccount(int id)
-        {
-            if (id >= 0 && id < CurrentCard.Accounts.Count)
-            {
-                var selected = CurrentCard.Accounts[id];
-                CurrentCard.Accounts.RemoveAt(id);
-                CurrentCard.Accounts.Insert(0, selected);
-            }
-        }
-
         public void Deposit(decimal amount)
         {
-            if (amount <= 0)
-                throw new ArgumentException("Сумма пополнения должна быть положительной.");
+            CheckCredit();
 
             CurrentCard.ActiveAccount.Deposit(amount);
 
-            if (amount > 1_000_000)
+            if (amount >= 1_000_000 && CurrentCard.ActiveAccount is CurrentAccount)
             {
                 var debit = CurrentCard.Accounts.FirstOrDefault(a => a is DebitAccount);
                 if (debit != null)
@@ -82,8 +90,7 @@ namespace lab2_1
 
         public void Withdraw(decimal amount)
         {
-            if (amount <= 0)
-                throw new ArgumentException("Сумма снятия должна быть положительной.");
+            CheckCredit();
 
             if (withdrawnThisSession + amount > 30000)
                 throw new InvalidOperationException("Нельзя снять больше 30000 за сеанс.");
@@ -94,6 +101,8 @@ namespace lab2_1
 
         public void Transfer(int targetId, decimal amount)
         {
+            CheckCredit();
+
             if (targetId <= 0 || targetId >= CurrentCard.Accounts.Count)
                 throw new ArgumentOutOfRangeException("Неверный ID счёта для перевода.");
 
@@ -101,8 +110,12 @@ namespace lab2_1
             CurrentCard.Accounts[targetId].Deposit(amount);
         }
 
-        public Card GetCard(string cardNumber) => cards.FirstOrDefault(c => c.Number == cardNumber);
-        public List<Card> GetAllCards() => cards;
+        public void CheckCredit()
+        {
+            var credit = CurrentCard.Accounts.FirstOrDefault(a => a is CreditAccount);
+            if (credit != null && CurrentCard.ActiveAccount is DebitAccount && credit.Balance < -20000)
+                throw new InvalidOperationException("Долг по кредитной карте превышает 20000.");
+        }
 
         public string GetCardInfo()
         {
@@ -120,9 +133,7 @@ namespace lab2_1
 
             return info;
         }
-        #endregion
 
-        #region Меню и интерактивный ввод
         public void Run()
         {
             while (true)
@@ -147,23 +158,16 @@ namespace lab2_1
             Console.Write("Введите номер карты (16 символов): ");
             string number = Console.ReadLine();
 
-            Card card = cards.FirstOrDefault(c => c.Number == number);
-            if (card == null)
-            {
-                Console.WriteLine("Такой карты не существует.");
-                Console.ReadKey();
-                return;
-            }
-
             int attempts = 3;
             while (attempts > 0)
             {
                 Console.Write("Введите PIN (4 символа): ");
                 string pin = Console.ReadLine();
 
-                if (card.Pin == pin)
+                bool loggedIn = Login(number, pin);
+
+                if (loggedIn)
                 {
-                    CurrentCard = card;
                     withdrawnThisSession = 0;
                     SessionMenu();
                     return;
@@ -171,10 +175,10 @@ namespace lab2_1
                 else
                 {
                     attempts--;
-                    Console.WriteLine($"Неверный PIN. Осталось попыток: {attempts}");
+                    Console.WriteLine($"Такой карты не существует или введён неверный PIN. Осталось попыток: {attempts}");
                     if (attempts == 0)
                     {
-                        Console.WriteLine("Ваша карта заблокирована, 40 волков уже выехало...");
+                        Console.WriteLine("Ваша карта либо не найдена, либо заблокирована, 40 волков в любом случае уже выехало...");
                         Environment.Exit(0);
                     }
                 }
@@ -242,15 +246,18 @@ namespace lab2_1
             }
         }
 
-        #region Методы меню
         private void MenuCreateAccount()
         {
             Console.WriteLine("Выберите тип счёта:");
             Console.WriteLine("1. Дебетовый");
             Console.WriteLine("2. Кредитный");
             string choice = Console.ReadLine();
-            if (choice == "1") CreateAccount("debit");
-            else if (choice == "2") CreateAccount("credit");
+            switch (choice)
+            {
+                case "1": CurrentCard.CreateAccount("debit"); break;
+                case "2": CurrentCard.CreateAccount("credit"); break;
+                default: return;
+            }
         }
 
         private void MenuSelectActiveAccount()
@@ -259,7 +266,7 @@ namespace lab2_1
             for (int i = 0; i < CurrentCard.Accounts.Count; i++)
                 Console.WriteLine($"{i}. {CurrentCard.Accounts[i]}");
             int id = int.Parse(Console.ReadLine());
-            SelectActiveAccount(id);
+            CurrentCard.SetActiveAccount(id);
         }
 
         private void MenuDeposit()
@@ -286,8 +293,5 @@ namespace lab2_1
             decimal amount = decimal.Parse(Console.ReadLine());
             Transfer(id, amount);
         }
-        #endregion
-
-        #endregion
     }
 }
