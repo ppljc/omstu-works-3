@@ -8,7 +8,7 @@ namespace lab2_3
 {
     class Pupil
     {
-        protected static Random rand = new Random();
+        protected static Random rand = new();
 
         public virtual int GetCurrentGrade
         {

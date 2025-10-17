@@ -9,7 +9,7 @@ namespace lab2_3
     class ClassRoom
     {
         public static int StudentCount { get; private set; }
-        private List<Pupil> pupils = new List<Pupil>();
+        private List<Pupil> pupils = [];
 
         public ClassRoom(params Pupil[] inputPupils)
         {
