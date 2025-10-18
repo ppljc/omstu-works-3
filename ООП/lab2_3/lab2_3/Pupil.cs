@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace lab2_3
 {
-    class Pupil
+    public class Pupil
     {
         protected static Random rand = new();
 

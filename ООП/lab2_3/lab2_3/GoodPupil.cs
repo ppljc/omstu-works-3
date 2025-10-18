@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace lab2_3
 {
-    sealed class GoodPupil : Pupil
+    public sealed class GoodPupil : Pupil
     {
         public override int GetCurrentGrade
         {

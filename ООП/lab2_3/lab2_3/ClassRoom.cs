@@ -6,18 +6,31 @@ using System.Threading.Tasks;
 
 namespace lab2_3
 {
-    class ClassRoom
+    public class ClassRoom
     {
         public static int StudentCount { get; private set; }
-        private List<Pupil> pupils = [];
+
+        private readonly List<Pupil> pupils = [];
+        private readonly Dictionary<Pupil, int> fixedGrades = new();
 
         public ClassRoom(params Pupil[] inputPupils)
         {
-            pupils.AddRange(inputPupils);
-
-            while (pupils.Count < 4)
+            if (inputPupils.Length > 4)
             {
-                pupils.Add(new Pupil());
+                pupils.AddRange(inputPupils.Take(4));
+            }
+            else
+            {
+                pupils.AddRange(inputPupils);
+                while (pupils.Count < 4)
+                {
+                    pupils.Add(new Pupil());
+                }
+            }
+
+            foreach (var p in pupils)
+            {
+                fixedGrades[p] = p.GetCurrentGrade;
             }
 
             StudentCount = pupils.Count;
@@ -27,7 +40,7 @@ namespace lab2_3
         {
             get
             {
-                return pupils.Average(p => p.GetCurrentGrade);
+                return fixedGrades.Values.Average();
             }
         }
 
@@ -36,7 +49,8 @@ namespace lab2_3
             int i = 1;
             foreach (var p in pupils)
             {
-                Console.WriteLine($"Ученик {i}: Оценка {p.GetCurrentGrade}");
+                int grade = fixedGrades[p];
+                Console.WriteLine($"Ученик {i}: Оценка {grade}");
                 p.Study();
                 p.Read();
                 p.Write();
