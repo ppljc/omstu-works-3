@@ -1,0 +1,19 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# JetBrains IDEs (IntelliJ, PyCharm, WebStorm и т.д.)
+.idea/
+*.iml
+*.iws
+out/
+
+# VSCode
+.vscode/
+
+# Системные файлы (опционально, но часто полезно)
+.DS_Store
+Thumbs.db
