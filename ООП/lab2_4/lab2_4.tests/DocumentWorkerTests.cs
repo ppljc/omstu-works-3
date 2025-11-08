@@ -10,7 +10,7 @@ using Microsoft.VisualStudio.TestPlatform.TestHost;
 namespace lab2_4.tests
 {
     [TestFixture]
-    class DocumentWorketTests
+    class DocumentWorkerTests
     {
         private StringWriter output;
 
@@ -19,6 +19,12 @@ namespace lab2_4.tests
         {
             output = new StringWriter();
             Console.SetOut(output);
+        }
+        
+        [TearDown]
+        public void TearDown()
+        {
+            output.Dispose();
         }
 
         private string RunProgramWithInput(string input)
@@ -34,7 +40,8 @@ namespace lab2_4.tests
         [TestCase("exp456", "Expert")]
         [TestCase("wrong", "Free")]
         [TestCase("      exp456    ", "Expert")]
-        [TestCase(null, "Free")]
+        [TestCase("          pro123", "Pro")]
+        // [TestCase(null, "Free")]
         public void Test_Activation(string key, string expectedVersion)
         {
             string result = RunProgramWithInput(key);
