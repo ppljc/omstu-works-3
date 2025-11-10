@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Documents\\omstu-works-2\\ООП\\lab3_1\\lab3_1\\lab3_1.csproj",
+      "projectUniqueName": "C:\\Users\\tony_\\OneDrive\\Документы\\omstu-works-2\\ООП\\lab3_1\\lab3_1\\lab3_1.csproj",
       "projectName": "lab3_1",
-      "projectPath": "D:\\Documents\\omstu-works-2\\ООП\\lab3_1\\lab3_1\\lab3_1.csproj",
+      "projectPath": "C:\\Users\\tony_\\OneDrive\\Документы\\omstu-works-2\\ООП\\lab3_1\\lab3_1\\lab3_1.csproj",
       "packagesPath": "C:\\Users\\tony_\\.nuget\\packages\\",
-      "outputPath": "D:\\Documents\\omstu-works-2\\ООП\\lab3_1\\lab3_1\\obj\\",
+      "outputPath": "C:\\Users\\tony_\\OneDrive\\Документы\\omstu-works-2\\ООП\\lab3_1\\lab3_1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
