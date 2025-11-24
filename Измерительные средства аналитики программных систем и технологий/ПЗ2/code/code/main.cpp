@@ -1,96 +1,61 @@
 #include <iostream>
-#include <iomanip>
-#include <random>
-#include <string>
+#include <vector>
 using namespace std;
 
-const int N = 7;
-
-// Print main (true) or anti-diagonal (false)
-void printDiagonal(const int matrix[N][N], bool isMain)
-{
-    for (int i = 0; i < N; ++i)
-    {
-        if (isMain)
-            cout << setw(4) << matrix[i][i];
-        else
-            cout << setw(4) << matrix[i][N - 1 - i];
+int sumOfDigits(int x) {
+    x = abs(x);
+    int s = 0;
+    while (x > 0) {
+        s += x % 10;
+        x /= 10;
     }
-    cout << "\n";
+    return s;
 }
 
-// Calculate sum of main (true) or anti-diagonal (false)
-long long sumDiagonal(const int matrix[N][N], bool isMain)
-{
-    long long sum = 0;
-    for (int i = 0; i < N; ++i)
-    {
-        sum += isMain ? matrix[i][i] : matrix[i][N - 1 - i];
+int main() {
+    int n;
+    cout << "Enter amount: ";
+    cin >> n;
+
+    vector<int> arr(n);
+
+    for (int i = 0; i < n; i++) {
+        cout << "Enter element " << i + 1 << ": ";
+        cin >> arr[i];
     }
-    return sum;
-}
 
-// Fill matrix with random integers in range [min, max]
-void fillRandom(int matrix[N][N], int minVal = -50, int maxVal = 50)
-{
-    random_device rd;
-    mt19937 gen(rd());
-    uniform_int_distribution<> dis(minVal, maxVal);
+    int positiveCount = 0;
+    int negativeCount = 0;
+    int evenCount = 0;
+    int oddCount  = 0;
 
-    for (int i = 0; i < N; ++i)
-        for (int j = 0; j < N; ++j)
-            matrix[i][j] = dis(gen);
-}
+    for (int i = 0; i < n; i++) {
+        int val = arr[i];
 
-// Print full matrix
-void printMatrix(const int matrix[N][N], const string& name)
-{
-    cout << "Matrix " << name << ":\n";
-    for (int i = 0; i < N; ++i)
-    {
-        for (int j = 0; j < N; ++j)
-            cout << setw(4) << matrix[i][j];
-        cout << "\n";
+        if (val > 0) {
+            positiveCount++;
+        } else if (val < 0) {
+            negativeCount++;
+        }
+
+        if (val % 2 == 0) {
+            evenCount++;
+        } else {
+            oddCount++;
+        }
+
+        int s = sumOfDigits(val);
+        cout << "The sum of digits of " << val << " = " << s << "\n";
     }
-    cout << "\n";
-}
 
-// Process and display information for one matrix
-void processMatrix(const int matrix[N][N], const string& name)
-{
-    cout << "Matrix " << name << ":\n";
+    cout << "Positive numbers: " << positiveCount << "\n";
+    cout << "Negative numbers: " << negativeCount << "\n";
+    cout << "Even numbers: " << evenCount << "\n";
+    cout << "Odd numbers: " << oddCount << "\n";
 
-    cout << "  Main diagonal:    ";
-    printDiagonal(matrix, true);
 
-    cout << "  Anti-diagonal:    ";
-    printDiagonal(matrix, false);
-
-    long long sumMain = sumDiagonal(matrix, true);
-    long long sumAnti = sumDiagonal(matrix, false);
-
-    cout << "  Sum of main diagonal:     " << sumMain << "\n";
-    cout << "  Sum of anti-diagonal:     " << sumAnti << "\n\n";
-}
-
-int main()
-{
-    int A[N][N], B[N][N];
-
-    // Seed is different each run thanks to random_device
-    fillRandom(A);
-    fillRandom(B);
-
-    // Optional: print full matrices
-    printMatrix(A, "A");
-    printMatrix(B, "B");
-
-    processMatrix(A, "A");
-    processMatrix(B, "B");
-
-    long long difference = sumDiagonal(A, true) - sumDiagonal(B, false);
-    cout << "Difference (main diagonal of A - anti-diagonal of B) = " << difference << "\n";
-
+    cout << "\nPress Enter to exit...";
+    cin.ignore();
     cin.get();
     return 0;
 }
