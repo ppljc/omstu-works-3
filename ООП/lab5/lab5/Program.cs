@@ -5,7 +5,7 @@ public class Program
     static void Main(string[] args)
     {
         Console.OutputEncoding = System.Text.Encoding.UTF8;
-        
+
         while (true)
         {
             Console.Clear();
@@ -26,13 +26,13 @@ public class Program
                     Task1 task1 = new Task1();
                     task1.Execute();
                     break;
-                
+
                 case "2":
                     Console.WriteLine("Задача 2: Сканер изображений на диске\n");
                     Task2 task2 = new Task2();
                     task2.Execute();
                     break;
-                
+
                 case "0":
                     Console.WriteLine("Выход...");
                     return;

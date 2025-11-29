@@ -4,7 +4,8 @@ public class Task1
 {
     public void Execute()
     {
-        string[] students = {
+        string[] students =
+        {
             "Алексеев Никита",
             "Ахмедеев Самир",
             "Бондин Данил",

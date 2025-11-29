@@ -16,7 +16,9 @@ public class Task2
             {
                 TraverseDirectory(drive.RootDirectory, pictureExtensions, pictures);
             }
-            catch { }
+            catch
+            {
+            }
         }
 
         var output = new FileInfo("pictures.txt");
@@ -44,7 +46,7 @@ public class Task2
 
         foreach (var file in files)
         {
-            if (Array.Exists(exts, e => 
+            if (Array.Exists(exts, e =>
                     file.Extension.Equals(e, StringComparison.OrdinalIgnoreCase)))
             {
                 buffer.Add(file.FullName);
