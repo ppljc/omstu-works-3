@@ -23,12 +23,14 @@ public class Program
             {
                 case "1":
                     Console.WriteLine("Задача 1: Файл списка группы\n");
-                    Task1.Execute();
+                    Task1 task1 = new Task1();
+                    task1.Execute();
                     break;
                 
                 case "2":
                     Console.WriteLine("Задача 2: Сканер изображений на диске\n");
-                    Task2.Execute();
+                    Task2 task2 = new Task2();
+                    task2.Execute();
                     break;
                 
                 case "0":
