@@ -24,6 +24,7 @@ public class Task9
         };
 
         Console.WriteLine("Русско-английский словарь:");
+
         foreach (var pair in dictionary)
         {
             Console.WriteLine($"{pair.Key} — {pair.Value}");
