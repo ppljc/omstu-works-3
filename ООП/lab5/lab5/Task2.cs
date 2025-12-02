@@ -4,8 +4,8 @@ public class Task2
 {
     public void Execute()
     {
-        List<string> pictures = new List<string>();
-        string[] pictureExtensions = { ".jpg", ".jpeg", ".png", ".bmp", ".gif", ".tiff", ".webp" };
+        List<string> pictures = [];
+        string[] pictureExtensions = [".jpg", ".jpeg", ".png", ".bmp", ".gif", ".tiff", ".webp"];
 
         foreach (var drive in DriveInfo.GetDrives())
         {
@@ -18,6 +18,7 @@ public class Task2
             }
             catch
             {
+                // ignored
             }
         }
 
@@ -46,8 +47,7 @@ public class Task2
 
         foreach (var file in files)
         {
-            if (Array.Exists(exts, e =>
-                    file.Extension.Equals(e, StringComparison.OrdinalIgnoreCase)))
+            if (Array.Exists(exts, e => file.Extension.Equals(e, StringComparison.OrdinalIgnoreCase)))
             {
                 buffer.Add(file.FullName);
             }
